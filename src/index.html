@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="TeaApp">
   <head>
     <meta charset="utf-8">
     <title>Untitled</title>
@@ -7,13 +7,71 @@
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
-  <body ng-cloak>
-    <!-- sample angular code -->
+  <body ng-cloak ng-controller="TeaAppController as teaCtrl">
+
+    <!-- Header -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">Mean Tea</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a>Home</a></li>
+            <li><a>About</a></li>
+            <li><a>Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Header -->
+
+    <!-- Title -->
     <div class="container">
-      <div ng-controller="mainController as mainCtrl">
-        <p>{{ mainCtrl.greeting }}</p>
+      <h1 class="title">Welcome to MEAN Tea</h1>
+    </div>
+    <!-- End Title -->
+
+
+
+    <!-- Main Content -->
+    <div class="container" ng-repeat="tea in teaCtrl.allTeas">
+      <div class="content_box col-md-12">
+        <!-- img -->
+        <div class="tea_image col-md-3 ">
+          <img src="{{tea.imageUrl}}" alt="tea img" />
+        </div>
+        <!-- content_body -->
+        <div class="item_description col-md-6">
+          <h3>{{tea.name}}</h3>
+          <p><b>Price:</b> {{tea.price | currency}}</p>
+          <p><b>Caffeine Scale:</b> {{tea.caffeineScale}}</p>
+          <p><b>Ingredients:</b> {{tea.ingredients}}</p>
+          <p><b>Rating:</b> {{tea.rating}}</p>
+          <p><b>In Stock?:</b> {{tea.inStock | yesNo}}</p>
+          <p><b>Categories:</b></p>
+          <ul ng-repeat="item in tea.categories">
+            <li >{{item}}</li>
+          </ul>
+        </div>
+        <!-- Add To Cart -->
+        <div class="add_to_cart col-md-3">
+          <div>
+            <h3>Quantity:
+              <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </h3>
+            <button class="btn btn-success" type="button" name="button">Add To Cart</button>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- End Main Content -->
+
     <!-- scripts -->
     <script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -22,5 +80,7 @@
     <script type="text/javascript" src="js/config.js"></script>
     <!-- main component -->
     <script type="text/javascript" src="js/components/main/main.controller.js"></script>
+    <script type="text/javascript" src="js/components/main/main.service.js"></script>
+    <script type="text/javascript" src="js/components/main/main.filter.js"></script>
   </body>
 </html>

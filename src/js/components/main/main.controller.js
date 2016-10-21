@@ -3,14 +3,14 @@
   'use strict';
 
   angular
-    .module('myApp.components.main', [])
-    .controller('mainController', mainController);
+    .module('TeaAppControllerModule', [])
+    .controller('TeaAppController', TeaAppController);
 
-  mainController.$inject = ['$scope'];
+  TeaAppController.$inject = ['TeaAppService'];
 
-  function mainController($scope) {
-    /*jshint validthis: true */
-    this.greeting = 'Hello World!';
+  function TeaAppController(TeaAppService) {
+
+    this.allTeas = TeaAppService.completeTeaList
   }
 
 })();

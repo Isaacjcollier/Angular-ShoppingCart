@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('myApp.config', [])
+    .module('TeaAppConfig', [])
     .config(appConfig);
 
   function appConfig() {}
