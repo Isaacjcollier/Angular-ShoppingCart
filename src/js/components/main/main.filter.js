@@ -3,19 +3,18 @@
 
   angular
   .module('TeaAppControllerModule')
-  .filter('yesNo', yesNo)
+  .filter('yesNo', yesNo);
 
-  yesNo.$inject = []
+  yesNo.$inject = [];
 
   function yesNo() {
     return function(input) {
       if (input) {
-        return 'Yes'
+        return 'Yes';
       } else {
-        return 'No'
+        return 'No';
       }
-    }
+    };
   }
-
 
 }());

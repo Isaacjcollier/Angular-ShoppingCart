@@ -1,6 +1,9 @@
 .title {
   color: orange;
 }
+.shopping_cart {
+  float: right;
+}
 
 .content_box {
   background-color: lightgrey;

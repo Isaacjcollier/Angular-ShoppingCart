@@ -10,7 +10,9 @@
 
   function TeaAppController(TeaAppService) {
 
-    this.allTeas = TeaAppService.completeTeaList
+    this.categories = TeaAppService.categories;
+
+    this.allTeas = TeaAppService.completeTeaList;
   }
 
 })();

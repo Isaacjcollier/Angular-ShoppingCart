@@ -31,6 +31,16 @@
     <div class="container">
       <h1 class="title">Welcome to MEAN Tea</h1>
     </div>
+
+    <div class="container">
+      <select ng-model="selectedItem">
+        <option></option>
+        <option ng-repeat="category in teaCtrl.categories">
+          {{category}}
+        </option>
+      </select>
+      <a class="shopping_cart btn btn-warning"> Shoping Cart | Empty</a>
+    </div>
     <!-- End Title -->
 
 
@@ -82,5 +92,6 @@
     <script type="text/javascript" src="js/components/main/main.controller.js"></script>
     <script type="text/javascript" src="js/components/main/main.service.js"></script>
     <script type="text/javascript" src="js/components/main/main.filter.js"></script>
+    <script type="text/javascript" src="js/components/main/main_search.filter.js"></script>
   </body>
 </html>
